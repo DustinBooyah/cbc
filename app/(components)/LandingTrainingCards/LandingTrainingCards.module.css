@@ -1,0 +1,27 @@
+.wrapper {
+    min-height: rem(380px);
+    background-image: linear-gradient(
+      -180deg,
+      #f0f0f0 0%,
+      #e4e4e4 100%
+    );
+    border-radius: var(--mantine-radius-md);
+    padding: calc(var(--mantine-spacing-lg) * 2.5);
+  
+    @media (max-width: $mantine-breakpoint-sm) {
+      padding: calc(var(--mantine-spacing-lg) * 1.5);
+    }
+  }
+.card {
+    background-color: var(--mantine-color-gray-0);
+  }
+
+  .title {
+    font-size: rem(42px);
+    font-weight: 900;
+    /* color: var(--mantine-color-white); */
+
+    @media (max-width: $mantine-breakpoint-sm) {
+      font-size: rem(24px);
+    }
+  }
