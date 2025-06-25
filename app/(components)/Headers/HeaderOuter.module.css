@@ -1,0 +1,84 @@
+.header {
+  background-color: var(--mantine-color-body);
+  border-bottom: 1px solid
+    light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+}
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.links {
+  padding-top: var(--mantine-spacing-xs);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.link {
+  display:block;
+  font-size: var(--mantine-font-size-sm);
+  color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0));
+  padding: 7px var(--mantine-spacing-sm);
+  text-decoration: none;
+  transition: color 100ms ease;
+
+  @mixin hover {
+    color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
+    text-decoration: none;
+    background-color: light-dark(
+      var(--mantine-color-gray-3),
+      var(--mantine-color-dark-4)
+    );
+  }
+
+  &[data-active] {
+    color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
+  }
+}
+.subMenu {
+  border-radius:0;
+  padding:0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.082);
+
+}
+.subLink {
+  display: block;
+  width:100%;
+  border-radius: 0;
+  text-decoration: none;
+  padding: 7px var(--mantine-spacing-sm);
+  color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0));
+  font-size: var(--mantine-font-size-sm);
+  transition: color 100ms ease;
+
+  @mixin hover {
+    color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
+    text-decoration: none;
+    background-color: light-dark(
+      var(--mantine-color-gray-3),
+      var(--mantine-color-dark-4)
+    );
+  }
+  &[data-active] {
+    color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
+  }
+}
+
+.linkLabel {
+  margin-right: 5px;
+  text-decoration: none;
+}
+
+.secondaryLink {
+  font-size: var(--mantine-font-size-sm);
+  text-decoration: none;
+  padding: 7px var(--mantine-spacing-sm);
+  @mixin hover {
+    background-color: light-dark(
+      var(--mantine-color-gray-1),
+      var(--mantine-color-dark-6)
+    );
+    text-decoration: none;
+  }
+}

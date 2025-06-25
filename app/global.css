@@ -1,0 +1,29 @@
+@import "@migov/digital-guidelines-core/dist/digital-guidelines-core/digital-guidelines-core.css";
+
+body {
+  color: #353535;
+}
+h1 {
+  font-weight: 500 !important;
+  font-variation-settings: "wght" 500 !important;
+  letter-spacing: -0.075rem;
+  color: #161618;
+}
+h2 {
+  font-weight: 500 !important;
+  font-variation-settings: "wght" 500 !important;
+  letter-spacing: -0.05rem;
+  color: #161618;
+}
+h3 {
+  font-weight: 500 !important;
+  font-variation-settings: "wght" 500 !important;
+  letter-spacing: -0.025rem;
+  color: #161618;
+}
+h4,
+h5,
+h6 {
+  color: #161618;
+  letter-spacing: -0.025rem;
+}

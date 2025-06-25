@@ -1,6 +1,6 @@
 .title {
   font-size: rem(34px);
-  font-weight: 900;
+  font-weight: 800;
 
   @media (max-width: $mantine-breakpoint-sm) {
     font-size: rem(24px);

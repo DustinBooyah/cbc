@@ -1,0 +1,32 @@
+
+.categoryCard {
+  height: rem(150px);
+  position: relative;
+  background-size: 100%;
+  background-position: center;
+  color: var(--mantine-color-white);
+  border-radius: var(--mantine-radius-md);
+  padding: var(--mantine-spacing-xl);
+  overflow: hidden;
+  transition: background-size 300ms ease, box-shadow 0.3s ease-in-out;;
+    align-content: center;
+  @mixin hover {
+    background-size: 105%;
+    text-decoration:none;
+    box-shadow: 0 2px 12px rgb(0 0 0);
+  }
+}
+
+.categoryLabel {
+  z-index: 2;
+  position: relative;
+  font-weight: 900;
+  color: var(--mantine-color-white);
+  line-height: 1.2;
+  font-size: 2.5rem;
+  margin-top: var(--mantine-spacing-xs);
+  /* cursor: default; */
+  text-shadow: 2px 1px 5px black;
+  text-align:center;
+  text-decoration:none;
+}
