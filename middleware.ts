@@ -17,7 +17,7 @@ export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   
   // Skip auth check for public routes
-  if (pathname.startsWith('/api/auth') || pathname === '/' || pathname === '/login') {
+  if (pathname.startsWith('/api/auth') || pathname.startsWith('/api/test-env') || pathname === '/' || pathname === '/login') {
     return NextResponse.next();
   }
 
