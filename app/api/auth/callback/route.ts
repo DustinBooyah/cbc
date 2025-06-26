@@ -1,6 +1,9 @@
 import { NextResponse, NextRequest } from "next/server";
 import { getUserRole } from "@/app/lib/auth/roles";
 
+// Force Node.js runtime instead of Edge
+export const runtime = 'nodejs';
+
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   
@@ -44,14 +47,35 @@ export async function GET(req: NextRequest) {
   }
   
   // Add client_secret - REQUIRED for MILogin
-  if (process.env.MILOGIN_VAR) {
-    params.append('client_secret', process.env.MILOGIN_VAR);
-  } else {
+  // Try multiple possible variable names
+  const miloginVar = process.env.MILOGIN_VAR || process.env.MILOGIN_CLIENT_SECRET;
+  const debugInfo = {
+    hasMLV: !!miloginVar,
+    mlvLength: miloginVar?.length || 0,
+    nodeEnv: process.env.NODE_ENV,
+    vercelEnv: process.env.VERCEL_ENV,
+    runtime: 'nodejs',
+    allEnvKeys: Object.keys(process.env).filter(k => k.includes('MILOGIN') || k.includes('CLIENT')),
+    publicVars: {
+      clientId: process.env.NEXT_PUBLIC_MILOGIN_CLIENT_ID,
+      appUrl: process.env.NEXT_PUBLIC_APP_URL,
+      idpDomain: process.env.NEXT_PUBLIC_IDP_DOMAIN
+    }
+  };
+  
+  console.log('Environment debug:', debugInfo);
+  
+  if (!miloginVar || miloginVar.trim() === '') {
     return NextResponse.json(
-      { error: "Server configuration error: missing MILOGIN_VAR" },
+      { 
+        error: "Server configuration error: missing MILOGIN_VAR or MILOGIN_CLIENT_SECRET",
+        debug: debugInfo // Always include debug info to help troubleshoot
+      },
       { status: 500 }
     );
   }
+  
+  params.append('client_secret', miloginVar);
 
   const tokenRes = await fetch(tokenUrl, {
     method:  "POST",
