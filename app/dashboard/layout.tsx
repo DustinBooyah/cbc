@@ -1,15 +1,15 @@
 "use client";
 
-// import { CognitoAuthProvider } from "@/app/api/auth/provider-auth";
+import { CognitoAuthProvider } from "@/app/api/auth/provider-auth";
 import DashboardLayout from "../(components)/Dashboard/DashboardLayout";
 import { ProtectedPage } from "../(components)/ProtectedPage/ProtectedPage";
 
 export default function DashboardShellLayout({ children }: { children: React.ReactNode }) {
   return (
-    // <CognitoAuthProvider>
+    <CognitoAuthProvider>
       <ProtectedPage>
         <DashboardLayout>{children}</DashboardLayout>
       </ProtectedPage>
-    //  </CognitoAuthProvider>
+      </CognitoAuthProvider>
   );
 }

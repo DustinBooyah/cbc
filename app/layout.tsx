@@ -13,7 +13,7 @@ import {
 import 'mantine-react-table/styles.css';
 import { ModalsProvider } from '@mantine/modals';
 import { AppProvider } from './provider';
-import { CognitoAuthProvider } from "./api/auth/provider-auth";
+// import { CognitoAuthProvider } from "./api/auth/provider-auth";
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -54,7 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
       </head>
       <body>
-        <CognitoAuthProvider>
+        {/* <CognitoAuthProvider> */}
           <MantineProvider theme={theme}>
             <ModalsProvider>
               <AppProvider>
@@ -62,7 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </AppProvider>
             </ModalsProvider>
           </MantineProvider>
-          </CognitoAuthProvider>
+          {/* </CognitoAuthProvider> */}
           </body>
     </html>
   );
