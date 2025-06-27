@@ -48,7 +48,7 @@ export async function GET(req: NextRequest) {
   
   // Add client_secret - REQUIRED for MILogin
   // Try multiple possible variable names
-  const miloginVar = process.env.MILOGIN_VAR || process.env.MILOGIN_CLIENT_SECRET;
+  const miloginVar = process.env.NEXT_PUBLIC_MILOGIN_VAR || process.env.MILOGIN_CLIENT_SECRET;
   const debugInfo = {
     hasMLV: !!miloginVar,
     mlvLength: miloginVar?.length || 0,
@@ -68,7 +68,7 @@ export async function GET(req: NextRequest) {
   if (!miloginVar || miloginVar.trim() === '') {
     return NextResponse.json(
       { 
-        error: "Server configuration error: missing MILOGIN_VAR or MILOGIN_CLIENT_SECRET",
+        error: "Server configuration error: missing NEXT_PUBLIC_MILOGIN_VAR or MILOGIN_CLIENT_SECRET",
         debug: debugInfo // Always include debug info to help troubleshoot
       },
       { status: 500 }

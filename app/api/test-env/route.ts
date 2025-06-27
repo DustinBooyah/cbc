@@ -2,8 +2,8 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
   const envCheck = {
-    hasMiloginVar: !!process.env.MILOGIN_VAR,
-    miloginVarLength: process.env.MILOGIN_VAR?.length || 0,
+    hasMiloginVar: !!process.env.NEXT_PUBLIC_MILOGIN_VAR,
+    miloginVarLength: process.env.NEXT_PUBLIC_MILOGIN_VAR?.length || 0,
     nodeEnv: process.env.NODE_ENV,
     vercelEnv: process.env.VERCEL_ENV,
     isVercel: !!process.env.VERCEL,
